@@ -1,4 +1,4 @@
-package utils
+package go_utils
 
 // MergeMap merge two map to one, if overwrite is true, the value of m2 will overwrite the value of m1
 func MergeMap(m1, m2 map[string]any, overwrite bool) (m3 map[string]any) {
