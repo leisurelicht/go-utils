@@ -1,4 +1,4 @@
-package check
+package utils
 
 func InSlice(val any, s any) bool {
 	switch s.(type) {
@@ -16,9 +16,9 @@ func InSlice(val any, s any) bool {
 }
 
 func InStringSlice(val string, s []string) bool {
-    if len(s) == 0 {
-        return false
-    }else if len(s) < 100 {
+	if len(s) == 0 {
+		return false
+	} else if len(s) < 100 {
 		for _, item := range s {
 			if item == val {
 				return true
@@ -38,9 +38,9 @@ func InStringSlice(val string, s []string) bool {
 }
 
 func InIntSlice(val int, s []int) bool {
-    if len(s) == 0 {
-        return false
-    }else if len(s) < 100 {
+	if len(s) == 0 {
+		return false
+	} else if len(s) < 100 {
 		for _, item := range s {
 			if item == val {
 				return true
@@ -60,9 +60,9 @@ func InIntSlice(val int, s []int) bool {
 }
 
 func InInt64Slice(val int64, s []int64) bool {
-    if len(s) == 0 {
-        return false
-    }else if len(s) < 100 {
+	if len(s) == 0 {
+		return false
+	} else if len(s) < 100 {
 		for _, item := range s {
 			if item == val {
 				return true
@@ -82,9 +82,9 @@ func InInt64Slice(val int64, s []int64) bool {
 }
 
 func InFloat64Slice(val float64, s []float64) bool {
-        if len(s) == 0 {
-        return false
-    }else if len(s) < 100 {
+	if len(s) == 0 {
+		return false
+	} else if len(s) < 100 {
 		for _, item := range s {
 			if item == val {
 				return true

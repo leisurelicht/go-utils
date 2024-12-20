@@ -1,11 +1,11 @@
-package gen
+package utils
 
 import (
 	"math/rand"
 	"time"
 )
 
-func RandomStrings(length, strLength int, includeList, avoidList []string) []string {
+func GenRandomStrings(length, strLength int, includeList, avoidList []string) []string {
 	rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	charset := "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
