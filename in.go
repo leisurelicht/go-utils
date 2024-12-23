@@ -1,4 +1,4 @@
-package go_utils
+package utilize
 
 func InSlice(val any, s any) bool {
 	switch s.(type) {

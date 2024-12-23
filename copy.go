@@ -1,4 +1,4 @@
-package go_utils
+package utilize
 
 import "reflect"
 
