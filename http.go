@@ -12,6 +12,15 @@ import (
 	"time"
 )
 
+const (
+	HeaderKeyContentType   = "Content-type"
+	HeaderKeyAuthorization = "Authorization"
+
+	HeaderValueApplicationJson = "application/json"
+	HeaderValueCharsetUTF8     = "charset=UTF-8"
+	HeaderValueJsonUTF8        = HeaderValueApplicationJson + ";" + HeaderValueCharsetUTF8
+)
+
 func HttpCli(method, url string, headers map[string]string, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
 	// Create the HTTP request
 	var (
