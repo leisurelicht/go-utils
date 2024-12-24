@@ -74,3 +74,31 @@ func HttpCli(method, url string, headers map[string]string, body string, timeout
 
 	return string(respBody), nil
 }
+
+func HttpGet(url string, headers map[string]string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+	return HttpCli("GET", url, headers, "", timeout, insecureSkipVerify, caCertPath)
+}
+
+func HttpPost(url string, headers map[string]string, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+	return HttpCli("POST", url, headers, body, timeout, insecureSkipVerify, caCertPath)
+}
+
+func HttpPut(url string, headers map[string]string, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+	return HttpCli("PUT", url, headers, body, timeout, insecureSkipVerify, caCertPath)
+}
+
+func HttpDelete(url string, headers map[string]string, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+	return HttpCli("DELETE", url, headers, body, timeout, insecureSkipVerify, caCertPath)
+}
+
+func HttpPatch(url string, headers map[string]string, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+	return HttpCli("PATCH", url, headers, body, timeout, insecureSkipVerify, caCertPath)
+}
+
+func HttpHead(url string, headers map[string]string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+	return HttpCli("HEAD", url, headers, "", timeout, insecureSkipVerify, caCertPath)
+}
+
+func HttpOptions(url string, headers map[string]string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+	return HttpCli("OPTIONS", url, headers, "", timeout, insecureSkipVerify, caCertPath)
+}
