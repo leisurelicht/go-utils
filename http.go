@@ -18,14 +18,11 @@ const (
 
 	HeaderValueApplicationJson = "application/json"
 	HeaderValueCharsetUTF8     = "charset=UTF-8"
-	HeaderValueJsonUTF8        = HeaderValueApplicationJson + ";" + HeaderValueCharsetUTF8
 )
 
-func HttpCli(method, url string, headers map[string]string, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
+func HttpCli(method, url string, headers http.Header, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response string, err error) {
 	// Create the HTTP request
-	var (
-		request *http.Request
-	)
+	var request *http.Request
 
 	if len(body) == 0 {
 		request, err = http.NewRequest(method, url, nil)
@@ -37,9 +34,7 @@ func HttpCli(method, url string, headers map[string]string, body string, timeout
 	}
 
 	// Set headers
-	for header, value := range headers {
-		request.Header.Set(header, value)
-	}
+	request.Header = headers
 
 	// Configure TLS
 	tlsConfig := &tls.Config{InsecureSkipVerify: insecureSkipVerify}
