@@ -81,7 +81,7 @@ func HttpCli(method, url string, headers HttpHeader, body string, timeout time.D
 	if err != nil {
 		return "", fmt.Errorf("failed to execute HTTP request: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	// Read the response body
 	respBody, err := io.ReadAll(resp.Body)
