@@ -9,7 +9,7 @@ func TestHttpCli(t *testing.T) {
 	type args struct {
 		method             string
 		url                string
-		headers            map[string]string
+		headers            HttpHeader
 		body               string
 		timeout            time.Duration
 		insecureSkipVerify bool
@@ -41,7 +41,7 @@ func TestHttpCli(t *testing.T) {
 func TestHttpDelete(t *testing.T) {
 	type args struct {
 		url     string
-		headers map[string]string
+		headers HttpHeader
 		body    string
 		timeout time.Duration
 	}
@@ -70,7 +70,7 @@ func TestHttpDelete(t *testing.T) {
 func TestHttpGet(t *testing.T) {
 	type args struct {
 		url     string
-		headers map[string]string
+		headers HttpHeader
 		timeout time.Duration
 	}
 	tests := []struct {
@@ -98,7 +98,7 @@ func TestHttpGet(t *testing.T) {
 func TestHttpHead(t *testing.T) {
 	type args struct {
 		url     string
-		headers map[string]string
+		headers HttpHeader
 		timeout time.Duration
 	}
 	tests := []struct {
@@ -126,7 +126,7 @@ func TestHttpHead(t *testing.T) {
 func TestHttpOptions(t *testing.T) {
 	type args struct {
 		url     string
-		headers map[string]string
+		headers HttpHeader
 		timeout time.Duration
 	}
 	tests := []struct {
@@ -154,7 +154,7 @@ func TestHttpOptions(t *testing.T) {
 func TestHttpPatch(t *testing.T) {
 	type args struct {
 		url     string
-		headers map[string]string
+		headers HttpHeader
 		body    string
 		timeout time.Duration
 	}
@@ -183,7 +183,7 @@ func TestHttpPatch(t *testing.T) {
 func TestHttpPost(t *testing.T) {
 	type args struct {
 		url     string
-		headers map[string]string
+		headers HttpHeader
 		body    string
 		timeout time.Duration
 	}
@@ -212,7 +212,7 @@ func TestHttpPost(t *testing.T) {
 func TestHttpPut(t *testing.T) {
 	type args struct {
 		url     string
-		headers map[string]string
+		headers HttpHeader
 		body    string
 		timeout time.Duration
 	}
@@ -241,7 +241,7 @@ func TestHttpPut(t *testing.T) {
 func TestHttpsDelete(t *testing.T) {
 	type args struct {
 		url        string
-		headers    map[string]string
+		headers    HttpHeader
 		body       string
 		timeout    time.Duration
 		caCertPath string
@@ -271,7 +271,7 @@ func TestHttpsDelete(t *testing.T) {
 func TestHttpsGet(t *testing.T) {
 	type args struct {
 		url        string
-		headers    map[string]string
+		headers    HttpHeader
 		timeout    time.Duration
 		caCertPath string
 	}
@@ -300,7 +300,7 @@ func TestHttpsGet(t *testing.T) {
 func TestHttpsHead(t *testing.T) {
 	type args struct {
 		url        string
-		headers    map[string]string
+		headers    HttpHeader
 		timeout    time.Duration
 		caCertPath string
 	}
@@ -329,7 +329,7 @@ func TestHttpsHead(t *testing.T) {
 func TestHttpsOptions(t *testing.T) {
 	type args struct {
 		url        string
-		headers    map[string]string
+		headers    HttpHeader
 		timeout    time.Duration
 		caCertPath string
 	}
@@ -358,7 +358,7 @@ func TestHttpsOptions(t *testing.T) {
 func TestHttpsPatch(t *testing.T) {
 	type args struct {
 		url        string
-		headers    map[string]string
+		headers    HttpHeader
 		body       string
 		timeout    time.Duration
 		caCertPath string
@@ -388,7 +388,7 @@ func TestHttpsPatch(t *testing.T) {
 func TestHttpsPost(t *testing.T) {
 	type args struct {
 		url        string
-		headers    map[string]string
+		headers    HttpHeader
 		body       string
 		timeout    time.Duration
 		caCertPath string
@@ -418,7 +418,7 @@ func TestHttpsPost(t *testing.T) {
 func TestHttpsPut(t *testing.T) {
 	type args struct {
 		url        string
-		headers    map[string]string
+		headers    HttpHeader
 		body       string
 		timeout    time.Duration
 		caCertPath string
