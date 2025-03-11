@@ -5,8 +5,8 @@ import (
 	"strconv"
 )
 
-// Int2StrSlice convert int slice to string slice
-func Int2StrSlice(s []int) []string {
+// IntS2StrS convert int slice to string slice
+func IntS2StrS(s []int) []string {
 	result := make([]string, len(s))
 	for i, v := range s {
 		result[i] = strconv.Itoa(v)
@@ -14,8 +14,8 @@ func Int2StrSlice(s []int) []string {
 	return result
 }
 
-// Int642StrSlice convert int64 slice to string slice
-func Int642StrSlice(s []int64) []string {
+// Int64S2StrS convert int64 slice to string slice
+func Int64S2StrS(s []int64) []string {
 	result := make([]string, len(s))
 	for i, v := range s {
 		result[i] = strconv.FormatInt(v, 10)
@@ -23,8 +23,8 @@ func Int642StrSlice(s []int64) []string {
 	return result
 }
 
-// StrSlice2Map convert string slice to map
-func StrSlice2Map(s []string) (res map[string]struct{}) {
+// StrS2Map convert string slice to map
+func StrS2Map(s []string) (res map[string]struct{}) {
 	res = make(map[string]struct{})
 	for _, e := range s {
 		res[e] = struct{}{}
