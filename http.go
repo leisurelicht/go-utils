@@ -23,11 +23,20 @@ const (
 )
 
 const (
-	HeaderKeyContentType   = "Content-type"
-	HeaderKeyAuthorization = "Authorization"
-
-	HeaderValueApplicationJson = "application/json"
-	HeaderValueCharsetUTF8     = "charset=UTF-8"
+	HeaderKeyContentType    = "Content-type"
+	HeaderKeyAuthorization  = "Authorization"
+	HeaderKeyConnect        = "Connection"
+	HeaderKeyUserAgent      = "User-Agent"
+	HeaderKeyAccept         = "Accept"
+	HeaderKeyAcceptCharset  = "Accept-Charset"
+	HeaderKeyAcceptEncoding = "Accept-Encoding"
+	HeaderKeyAcceptLanguage = "Accept-Language"
+	HeaderKeyAcceptRanges   = "Accept-Ranges"
+	HeaderKeyCacheControl   = "Cache-Control"
+	HeaderKeyCookie         = "Cookie"
+	HeaderKeyExpect         = "Expect"
+	HeaderKeyForwarded      = "Forwarded"
+	HeaderKeyFrom           = "From"
 )
 
 type HttpHeader http.Header
