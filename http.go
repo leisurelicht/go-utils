@@ -37,6 +37,23 @@ const (
 	HeaderKeyExpect         = "Expect"
 	HeaderKeyForwarded      = "Forwarded"
 	HeaderKeyFrom           = "From"
+
+	HeaderValueApplicationJson        = "application/json"
+	HeaderValueApplicationXml         = "application/xml"
+	HeaderValueApplicationForm        = "application/x-www-form-urlencoded"
+	HeaderValueApplicationOctetStream = "application/octet-stream"
+	HeaderValueApplicationPdf         = "application/pdf"
+	HeaderValueApplicationZip         = "application/zip"
+	HeaderValueApplicationGzip        = "application/gzip"
+	HeaderValueApplicationXhtml       = "application/xhtml+xml"
+	HeaderValueApplicationRss         = "application/rss+xml"
+	HeaderValueConnectionKeepAlive    = "keep-alive"
+	HeaderValueConnectionClose        = "close"
+	HeaderValueConnectionUpgrade      = "upgrade"
+	HeaderValueConnectionHttp2        = "HTTP/2"
+	HeaderValueConnectionWebsocket    = "websocket"
+	HeaderValueConnectionSpdy         = "spdy"
+	HeaderValueAcceptJson             = "application/json"
 )
 
 type HttpHeader http.Header
