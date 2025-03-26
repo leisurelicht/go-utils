@@ -31,8 +31,8 @@ func TestHttpCli(t *testing.T) {
 				t.Errorf("HttpCli() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if got != tt.want {
-				t.Errorf("HttpCli() got = %v, want %v", got, tt.want)
+			if string(got) != tt.want {
+				t.Errorf("HttpCli() got = %v, want %v", string(got), tt.want)
 			}
 		})
 	}
@@ -60,8 +60,8 @@ func TestHttpDelete(t *testing.T) {
 				t.Errorf("HttpDelete() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpDelete() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpDelete() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -88,8 +88,8 @@ func TestHttpGet(t *testing.T) {
 				t.Errorf("HttpGet() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpGet() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpGet() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -116,8 +116,8 @@ func TestHttpHead(t *testing.T) {
 				t.Errorf("HttpHead() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpHead() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpHead() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -144,8 +144,8 @@ func TestHttpOptions(t *testing.T) {
 				t.Errorf("HttpOptions() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpOptions() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpOptions() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -173,8 +173,8 @@ func TestHttpPatch(t *testing.T) {
 				t.Errorf("HttpPatch() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpPatch() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpPatch() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -202,8 +202,8 @@ func TestHttpPost(t *testing.T) {
 				t.Errorf("HttpPost() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpPost() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpPost() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -231,8 +231,8 @@ func TestHttpPut(t *testing.T) {
 				t.Errorf("HttpPut() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpPut() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpPut() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -261,8 +261,8 @@ func TestHttpsDelete(t *testing.T) {
 				t.Errorf("HttpsDelete() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpsDelete() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpsDelete() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -290,8 +290,8 @@ func TestHttpsGet(t *testing.T) {
 				t.Errorf("HttpsGet() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpsGet() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpsGet() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -319,8 +319,8 @@ func TestHttpsHead(t *testing.T) {
 				t.Errorf("HttpsHead() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpsHead() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpsHead() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -348,8 +348,8 @@ func TestHttpsOptions(t *testing.T) {
 				t.Errorf("HttpsOptions() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpsOptions() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpsOptions() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -378,8 +378,8 @@ func TestHttpsPatch(t *testing.T) {
 				t.Errorf("HttpsPatch() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpsPatch() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpsPatch() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -408,8 +408,8 @@ func TestHttpsPost(t *testing.T) {
 				t.Errorf("HttpsPost() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpsPost() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpsPost() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
@@ -438,8 +438,8 @@ func TestHttpsPut(t *testing.T) {
 				t.Errorf("HttpsPut() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if gotResponse != tt.wantResponse {
-				t.Errorf("HttpsPut() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			if string(gotResponse) != tt.wantResponse {
+				t.Errorf("HttpsPut() gotResponse = %v, want %v", string(gotResponse), tt.wantResponse)
 			}
 		})
 	}
