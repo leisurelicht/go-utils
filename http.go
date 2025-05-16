@@ -13,16 +13,6 @@ import (
 )
 
 const (
-	HttpGetMethod     = "GET"
-	HttpPostMethod    = "POST"
-	HttpPutMethod     = "PUT"
-	HttpDeleteMethod  = "DELETE"
-	HttpPatchMethod   = "PATCH"
-	HttpHeadMethod    = "HEAD"
-	HttpOptionsMethod = "OPTIONS"
-)
-
-const (
 	HeaderKeyContentType    = "Content-type"
 	HeaderKeyAuthorization  = "Authorization"
 	HeaderKeyConnect        = "Connection"
@@ -56,9 +46,7 @@ const (
 	HeaderValueAcceptJson             = "application/json"
 )
 
-type HttpHeader http.Header
-
-func HttpCli(method, url string, headers HttpHeader, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response []byte, err error) {
+func HttpCli(method, url string, headers http.Header, body string, timeout time.Duration, insecureSkipVerify bool, caCertPath string) (response []byte, err error) {
 	// Create the HTTP request
 	var request *http.Request
 
@@ -71,12 +59,7 @@ func HttpCli(method, url string, headers HttpHeader, body string, timeout time.D
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}
 
-	// Set headers
-	for key, values := range headers {
-		for _, value := range values {
-			request.Header.Add(key, value)
-		}
-	}
+	request.Header = headers
 
 	// Configure TLS
 	tlsConfig := &tls.Config{InsecureSkipVerify: insecureSkipVerify}
@@ -121,58 +104,58 @@ func HttpCli(method, url string, headers HttpHeader, body string, timeout time.D
 	return respBody, nil
 }
 
-func HttpGet(url string, headers HttpHeader, timeout time.Duration) (response []byte, err error) {
-	return HttpCli(HttpGetMethod, url, headers, "", timeout, true, "")
+func HttpGet(url string, headers http.Header, timeout time.Duration) (response []byte, err error) {
+	return HttpCli(http.MethodGet, url, headers, "", timeout, true, "")
 }
 
-func HttpPost(url string, headers HttpHeader, body string, timeout time.Duration) (response []byte, err error) {
-	return HttpCli(HttpPostMethod, url, headers, body, timeout, true, "")
+func HttpPost(url string, headers http.Header, body string, timeout time.Duration) (response []byte, err error) {
+	return HttpCli(http.MethodPost, url, headers, body, timeout, true, "")
 }
 
-func HttpPut(url string, headers HttpHeader, body string, timeout time.Duration) (response []byte, err error) {
-	return HttpCli(HttpPutMethod, url, headers, body, timeout, true, "")
+func HttpPut(url string, headers http.Header, body string, timeout time.Duration) (response []byte, err error) {
+	return HttpCli(http.MethodPut, url, headers, body, timeout, true, "")
 }
 
-func HttpDelete(url string, headers HttpHeader, body string, timeout time.Duration) (response []byte, err error) {
-	return HttpCli(HttpDeleteMethod, url, headers, body, timeout, true, "")
+func HttpDelete(url string, headers http.Header, body string, timeout time.Duration) (response []byte, err error) {
+	return HttpCli(http.MethodDelete, url, headers, body, timeout, true, "")
 }
 
-func HttpPatch(url string, headers HttpHeader, body string, timeout time.Duration) (response []byte, err error) {
-	return HttpCli(HttpPatchMethod, url, headers, body, timeout, true, "")
+func HttpPatch(url string, headers http.Header, body string, timeout time.Duration) (response []byte, err error) {
+	return HttpCli(http.MethodPatch, url, headers, body, timeout, true, "")
 }
 
-func HttpHead(url string, headers HttpHeader, timeout time.Duration) (response []byte, err error) {
-	return HttpCli(HttpHeadMethod, url, headers, "", timeout, true, "")
+func HttpHead(url string, headers http.Header, timeout time.Duration) (response []byte, err error) {
+	return HttpCli(http.MethodHead, url, headers, "", timeout, true, "")
 }
 
-func HttpOptions(url string, headers HttpHeader, timeout time.Duration) (response []byte, err error) {
-	return HttpCli(HttpOptionsMethod, url, headers, "", timeout, true, "")
+func HttpOptions(url string, headers http.Header, timeout time.Duration) (response []byte, err error) {
+	return HttpCli(http.MethodOptions, url, headers, "", timeout, true, "")
 }
 
-func HttpsGet(url string, headers HttpHeader, timeout time.Duration, caCertPath string) (response []byte, err error) {
-	return HttpCli(HttpGetMethod, url, headers, "", timeout, false, caCertPath)
+func HttpsGet(url string, headers http.Header, timeout time.Duration, caCertPath string) (response []byte, err error) {
+	return HttpCli(http.MethodGet, url, headers, "", timeout, false, caCertPath)
 }
 
-func HttpsPost(url string, headers HttpHeader, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
-	return HttpCli(HttpPostMethod, url, headers, body, timeout, false, caCertPath)
+func HttpsPost(url string, headers http.Header, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
+	return HttpCli(http.MethodPost, url, headers, body, timeout, false, caCertPath)
 }
 
-func HttpsPut(url string, headers HttpHeader, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
-	return HttpCli(HttpPutMethod, url, headers, body, timeout, false, caCertPath)
+func HttpsPut(url string, headers http.Header, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
+	return HttpCli(http.MethodPut, url, headers, body, timeout, false, caCertPath)
 }
 
-func HttpsDelete(url string, headers HttpHeader, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
-	return HttpCli(HttpDeleteMethod, url, headers, body, timeout, false, caCertPath)
+func HttpsDelete(url string, headers http.Header, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
+	return HttpCli(http.MethodDelete, url, headers, body, timeout, false, caCertPath)
 }
 
-func HttpsPatch(url string, headers HttpHeader, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
-	return HttpCli(HttpPatchMethod, url, headers, body, timeout, false, caCertPath)
+func HttpsPatch(url string, headers http.Header, body string, timeout time.Duration, caCertPath string) (response []byte, err error) {
+	return HttpCli(http.MethodPatch, url, headers, body, timeout, false, caCertPath)
 }
 
-func HttpsHead(url string, headers HttpHeader, timeout time.Duration, caCertPath string) (response []byte, err error) {
-	return HttpCli(HttpHeadMethod, url, headers, "", timeout, false, caCertPath)
+func HttpsHead(url string, headers http.Header, timeout time.Duration, caCertPath string) (response []byte, err error) {
+	return HttpCli(http.MethodHead, url, headers, "", timeout, false, caCertPath)
 }
 
-func HttpsOptions(url string, headers HttpHeader, timeout time.Duration, caCertPath string) (response []byte, err error) {
-	return HttpCli(HttpOptionsMethod, url, headers, "", timeout, false, caCertPath)
+func HttpsOptions(url string, headers http.Header, timeout time.Duration, caCertPath string) (response []byte, err error) {
+	return HttpCli(http.MethodOptions, url, headers, "", timeout, false, caCertPath)
 }
